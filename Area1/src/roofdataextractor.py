@@ -5,11 +5,11 @@ import defusedxml.ElementTree as ET
 import json
 
 
+
 class CheckFormatResponse:
     def __init__(self, success, tree):
         self.success = success
         self.tree = tree
-
 
 def check_format(file):
     # check if the file is correctly formatted
@@ -36,16 +36,47 @@ def xml_to_json(file):
         # print("root: ")
         # print(response.tree.getroot())
         # print("3 child: ")
-        faces = response.tree.getroot()[3][0]
+        faces = response.tree.getroot()[3][0][0]
+        lines = response.tree.getroot()[3][0][1]
+        points = response.tree.getroot()[3][0][2]
         # print(structure)
         ##roof_1 = structure[0]
         # print(roof_1)
-
         ##faces = roof_1[0]
         for face in faces:
             polygon = face[0]
-            polygon.attrib['id'] = 1
-            print(polygon.attrib.get('id'))
+            
+            tmp = []
+            for pathElem in polygon.attrib['path'].split(','):
+                for line in lines:
+                    
+                    if pathElem == line.attrib['id']:
+                        tmp.append(str(line.attrib['path']))
+                polygon.attrib['path'] = tmp
+            
+            
+            # tmp = []
+            # for pathElem in str(polygon.attrib['path']).split(','):
+            #     for point in points:
+                    
+            #         if pathElem == point.attrib['id']:
+            #             tmp.append(str(point.attrib['data']))
+            #     polygon.attrib['path'] = tmp
+                        
+            print(polygon.attrib['path'])
+                                                  
+                # for point in points:
+                #     for pathElem in list(polygon.attrib['path']):
+                #         if pathElem == point.attrib['id']:
+                #             polygon.attrib['path'][pathElem] = point.attrib['data']
+                        
+                # line.attrib["path"].split(",")
+                # path = line.attrib['path'].split()
+                # print(line.attrib['path'].split(',')[0])
+                
+            # print(polygon.attrib['path'])
+            
+            
         # get file name
         name = str.split(file, ".")[-2]
         # open the XML file, convert to json and dump into a new file
@@ -56,9 +87,7 @@ def xml_to_json(file):
             main_final, last = main.split("</FACES>")
 
             final = "<FACES>" + main_final + "</FACES>"
-            print(final)
-            # print(final_final)
-            # print(last)
+            # print(final)
 
             jsonOut = bf.data(fromstring(final))
             with open(name + ".json", "w+") as newFile:
