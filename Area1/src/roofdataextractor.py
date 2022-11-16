@@ -36,31 +36,49 @@ def extract_roof_data(data):
     faces = data['DATA_EXPORT']['STRUCTURES']['ROOF']['FACES']
     lines = data['DATA_EXPORT']['STRUCTURES']['ROOF']['LINES']
     points = data['DATA_EXPORT']['STRUCTURES']['ROOF']['POINTS']
-    
+
+    counter = 0
     final_string = ""
     for face in faces['FACE']:
+        #Einam per kiekviena face'a
         for path_line in face['POLYGON']['@path'].split(","):
+            #Splitinam "L44,L45,L46,L47" ir einam per kiekviena is ju
             for line in lines['LINE']:
+                #einam per visus line'us ir ieskom sutampanciu            
                 if line['@id'] == path_line:
+                    #jei randam sutampanti
                     line_points = line['@path'].split(",")
+                    #splitinam ta line'o patha "C25,C1" ir einam per kiekviena is ju
+                    line_type = line['@type']
+                    #pasiimam line'o tipa, kurio mum reikes
                     for point in points['POINT']:
+                        #einam per visus pointus ir surandam sutampancius
                         if point['@id'] == line_points[0]:
                             point1 = point['@data'].split(",")
+                            #pasiimam pointo koordinates, splitindami i tris dalis: x, y, z
                         if point['@id'] == line_points[1]:
-                            point2 = point['@data'].split(",")                          
-                            path_line_str = (" '" + path_line + "' : {'" + line_points[0] + "' : { 'X' : " + point1[0] + ","  
-                            + "'Y' : " + point1[1] + "," + "'Z' : " + point1[2] + "},'" + line_points[1] + "' : { 'X' : " + point2[0] + ","  
-                            + "'Y' : " + point2[1] + "," + "'Z' : " + point2[2] + "}" +  "},")
-                            final_string = "".join([ final_string, path_line_str])
+                            point2 = point['@data'].split(",") 
+                            #pasiimam pointo koordinates, splitindami i tris dalis: x, y, z  +line_type + "'," + 
+
+
+                    path_line_str = (" '" + path_line + "' : {'Type' : '"+ line_type + "','" + line_points[0] + "' : { 'X' : " + point1[0] + ","  
+                    + "'Y' : " + point1[1] + "," + "'Z' : " + point1[2] + "},'" + line_points[1] + "' : { 'X' : " + point2[0] + ","  
+                    + "'Y' : " + point2[1] + "," + "'Z' : " + point2[2] + "}" +  "},")
+                    final_string = "".join([ final_string, path_line_str]) 
+                    #sujungiam visus stringus i viena, kad butu lengviau irasyti i json'a
+                    break
+        counter += 1
+                            
                                
         final_string = "{" +final_string + "}"
          
         face['POLYGON']['@path'] = eval(final_string)
         final_string = ""
+        #addinam i jsona su eval funkcija
 
     faces = data['DATA_EXPORT']['STRUCTURES']['ROOF']['FACES']
     with open("data" + ".json","w+") as newFile:
-        json.dump(faces, newFile, ensure_ascii=True, indent=2, sort_keys=True)
+        json.dump(faces, newFile, ensure_ascii=True, indent=2, sort_keys=False)
    
 
 
