@@ -4,12 +4,10 @@ from collections import OrderedDict
 import defusedxml.ElementTree as ET
 import json
 
-
-
-class CheckFormatResponse:
-    def __init__(self, success, tree):
-        self.success = success
-        self.tree = tree
+# json.dumps does not make your string ready to be loaded with json.loads.
+#  It will only encode it to JSON specs (by adding escapes pretty much everywhere) !
+# json.loads will transform a correctly formatted JSON string to a python dictionary. 
+# It will only work if the JSON follows the JSON specs (no single quotes, uppercase for boolean's first letter, etc).
 
 def check_format(file):
     # check if the file is correctly formatted
@@ -18,85 +16,63 @@ def check_format(file):
         tree.getroot() == "DATA_EXPORT"
         tree.getroot()[2].tag == "ADDRESS"
         # check if third child's child is named "ROOF"
-        return CheckFormatResponse(True, tree)
+        return True
     except ET.ParseError:
         # if the file is not well-formed, print that is not well-formed
         print(file + " is not well-formed")
-        return CheckFormatResponse(False, None)
+        return False
 
 
 # define a function to convert xml to json
 def xml_to_json(file):
-    # if the file is well-formed...
-    response = check_format(file)
+    if check_format(file):
+        with open(file, "r") as input:
+            jsonOut = bf.data(fromstring(input.read()))
+        return json.loads(json.dumps(jsonOut))
 
-    if (response.success and response.tree):
-        # print(response.success, response.tree)
-        # transfer "FACE" child to json
-        # print("root: ")
-        # print(response.tree.getroot())
-        # print("3 child: ")
-        faces = response.tree.getroot()[3][0][0]
-        lines = response.tree.getroot()[3][0][1]
-        points = response.tree.getroot()[3][0][2]
-        # print(structure)
-        ##roof_1 = structure[0]
-        # print(roof_1)
-        ##faces = roof_1[0]
-        for face in faces:
-            polygon = face[0]
-            
-            tmp = []
-            for pathElem in polygon.attrib['path'].split(','):
-                for line in lines:
-                    
-                    if pathElem == line.attrib['id']:
-                        tmp.append(str(line.attrib['path']))
-                polygon.attrib['path'] = tmp
-            
-            
-            # tmp = []
-            # for pathElem in str(polygon.attrib['path']).split(','):
-            #     for point in points:
-                    
-            #         if pathElem == point.attrib['id']:
-            #             tmp.append(str(point.attrib['data']))
-            #     polygon.attrib['path'] = tmp
-                        
-            print(polygon.attrib['path'])
-                                                  
-                # for point in points:
-                #     for pathElem in list(polygon.attrib['path']):
-                #         if pathElem == point.attrib['id']:
-                #             polygon.attrib['path'][pathElem] = point.attrib['data']
-                        
-                # line.attrib["path"].split(",")
-                # path = line.attrib['path'].split()
-                # print(line.attrib['path'].split(',')[0])
-                
-            # print(polygon.attrib['path'])
-            
-            
-        # get file name
-        name = str.split(file, ".")[-2]
-        # open the XML file, convert to json and dump into a new file
-        with open(file, "rt") as input:
+def extract_roof_data(data):
+    print("extracting roof data")
+ 
+    faces = data['DATA_EXPORT']['STRUCTURES']['ROOF']['FACES']
+    lines = data['DATA_EXPORT']['STRUCTURES']['ROOF']['LINES']
+    points = data['DATA_EXPORT']['STRUCTURES']['ROOF']['POINTS']
+    
+    final_string = ""
+    for face in faces['FACE']:
+        for path_line in face['POLYGON']['@path'].split(","):
+            for line in lines['LINE']:
+                if line['@id'] == path_line:
+                    line_points = line['@path'].split(",")
+                    for point in points['POINT']:
+                        if point['@id'] == line_points[0]:
+                            point1 = point['@data'].split(",")
+                        if point['@id'] == line_points[1]:
+                            point2 = point['@data'].split(",")                          
+                            path_line_str = (" '" + path_line + "' : {'" + line_points[0] + "' : { 'X' : " + point1[0] + ","  
+                            + "'Y' : " + point1[1] + "," + "'Z' : " + point1[2] + "},'" + line_points[1] + "' : { 'X' : " + point2[0] + ","  
+                            + "'Y' : " + point2[1] + "," + "'Z' : " + point2[2] + "}" +  "},")
+                            final_string = "".join([ final_string, path_line_str])
+                               
+        final_string = "{" +final_string + "}"
+         
+        face['POLYGON']['@path'] = eval(final_string)
+        final_string = ""
 
-            text = input.read()
-            first, main = text.split("<FACES>")
-            main_final, last = main.split("</FACES>")
+    faces = data['DATA_EXPORT']['STRUCTURES']['ROOF']['FACES']
+    with open("data" + ".json","w+") as newFile:
+        json.dump(faces, newFile, ensure_ascii=True, indent=2, sort_keys=True)
+   
 
-            final = "<FACES>" + main_final + "</FACES>"
-            # print(final)
 
-            jsonOut = bf.data(fromstring(final))
-            with open(name + ".json", "w+") as newFile:
-                json.dump(jsonOut, newFile, ensure_ascii=False)
+
+
 
 
 def main():
-    file = input("Iveskite failo pavadinima arba kelia iki jo: ")
-    xml_to_json(file)
+    #file = input("Iveskite failo pavadinima arba kelia iki jo: ")
+    file="stogas.xml"
+    extract_roof_data(xml_to_json(file))
+    
 
 
 if __name__ == '__main__':
