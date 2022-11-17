@@ -72,15 +72,12 @@ def extract_roof_data(data):
         #adding to json with eval function
 
     faces = data['DATA_EXPORT']['STRUCTURES']['ROOF']['FACES']
-    with open("data" + ".json","w+") as newFile:
+   
+    with open("Area1\src\JSONOutput\data" + ".json","w+") as newFile:
         json.dump(faces, newFile, ensure_ascii=True, indent=2, sort_keys=False)
    
-
-
-
-
-
-
+    print("Done")
+    
 def main():
     #file = input("Input the path to the file: ")
     file="Area1\src\XMLFIles\stogas.xml"
