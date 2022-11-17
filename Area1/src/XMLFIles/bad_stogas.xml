@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DATA_EXPORT>
+  <HEADER>
+    <CODE>STOGAS</CODE>
+    <DATE>2016-01-01</DATE>
+    <NAME>STOGAS</NAME>
+  </HEADER>
+  asdasdasdasdas
+
+ 8">
+          <POLYGON id="P2" orientation="172.85" path="L1,L5,L6,L7" pitch="18" size="886" unroundedsize="885.9339831751753" />
+        </FACE>
+        <FACE designator="F3" id="F3" type="ROOFPENETRATION" children="">
+          <POLYGON id="F3" orientation="172.85" path="L8,L9,L10,L11" pitch="18" size="6" unroundedsize="6.495811762067533" />
+        </FACE>
+        <FACE designator="F4" id="F4" type="ROOFPENETRATION" children="">
+          <POLYGON id="F4" orientation="172.85" path="L12,L13,L14,L15" pitch="18" size="6" unroundedsize="6.495811768310626" />
+        </FACE>
+        <FACE designator="F5" id="F5" type="ROOFPENETRATION" children="">
+          <POLYGON id="F5" orientation="172.85" path="L16,L17,L18,L19" pitch="18" size="6" unroundedsize="6.495816273442349" />
+        </FACE>
+        <FACE designator="F6" id="F6" type="ROOFPENETRATION" children="">
+          <POLYGON id="F6" orientation="172.85" path="L20,L21,L22,L23" pitch="18" size="6" unroundedsize="6.495808855132129" />
+        </FACE>
+        <FACE designator="F7" id="F7" type="ROOFPENETRATION" children="">
+          <POLYGON id="F7" orientation="172.85" path="L24,L25,L26,L27" pitch="18" size="6" unroundedsize="6.495808861707519" />
+        </FACE>
+        <FACE designator="F8" id="F8" type="ROOFPENETRATION" children="">
+          <POLYGON id="F8" orientation="172.85" path="L28,L29,L30,L31" pitch="18" size="6" unroundedsize="6.495813366508966" />
+        </FACE>
+        <FACE designator="F9" id="F9" type="ROOFPENETRATION" children="">
+          <POLYGON id="F9" orientation="7.15" path="L32,L33,L34,L35" pitch="18" size="6" unroundedsize="6.495811761898328" />
+        </FACE>
+        <FACE designator="F10" id="F10" type="ROOFPENETRATION" children="">
+          <POLYGON id="F10" orientation="7.15" path="L36,L37,L38,L39" pitch="18" size="6" unroundedsize="6.495813366508964" />
+        </FACE>
+        <FACE designator="F11" id="F11" type="ROOFPENETRATION" children="">
+          <POLYGON id="F11" orientation="7.15" path="L40,L41,L42,L43" pitch="18" size="6" unroundedsize="6.49581627351126" />
+        </FACE>
+        <FACE designator="F12" id="F12" type="ROOFPENETRATION" children="">
+          <POLYGON id="F12" orientation="7.15" path="L44,L45,L46,L47" pitch="18" size="6" unroundedsize="6.495813366508964" />
+        </FACE>
+        <FACE designator="F13" id="F13" type="ROOFPENETRATION" children="">
+          <POLYGON id="F13" orientation="7.15" path="L48,L49,L50,L51" pitch="18" size="6" unroundedsize="6.495808860569443" />
+        </FACE>
+        <FACE designator="F14" id="F14" type="ROOFPENETRATION" children="">
+          <POLYGON id="F14" orientation="7.15" path="L52,L53,L54,L55" pitch="18" size="5" unroundedsize="4.938318414200003" />
+        </FACE>
+        <FACE designator="F15" id="F15" type="ROOFPENETRATION" children="">
+          <POLYGON id="F15" orientation="7.15" path="L56,L57,L58,L59" pitch="18" size="5" unroundedsize="4.938318414200003" />
+        </FACE>
+      </FACES>
+      <LINES>
+        <LINE id="L1" type="RIDGE" path="C1,C2" />
+        <LINE id="L2" type="RAKE" path="C2,C3" />
+        <LINE id="L3" type="EAVE" path="C3,C4" />
+        <LINE id="L4" type="RAKE" path="C4,C1" />
+        <LINE id="L5" type="RAKE" path="C2,C5" />
+        <LINE id="L6" type="EAVE" path="C5,C6" />
+        <LINE id="L7" type="RAKE" path="C6,C1" />
+        <LINE id="L8" type="STEPFLASHING" path="C7,C8" />
+        <LINE id="L9" type="STEPFLASHING" path="C8,C9" />
+        <LINE id="L10" type="STEPFLASHING" path="C9,C10" />
+        <LINE id="L11" type="STEPFLASHING" path="C10,C7" />
+        <LINE id="L12" type="STEPFLASHING" path="C11,C12" />
+        <LINE id="L13" type="STEPFLASHING" path="C12,C13" />
+        <LINE id="L14" type="STEPFLASHING" path="C13,C14" />
+        <LINE id="L15" type="STEPFLASHING" path="C14,C11" />
+        <LINE id="L16" type="STEPFLASHING" path="C15,C16" />
+        <LINE id="L17" type="STEPFLASHING" path="C16,C17" />
+        <LINE id="L18" type="STEPFLASHING" path="C17,C18" />
+        <LINE id="L19" type="STEPFLASHING" path="C18,C15" />
+        <LINE id="L20" type="STEPFLASHING" path="C19,C20" />
+        <LINE id="L21" type="STEPFLASHING" path="C20,C21" />
+        <LINE id="L22" type="STEPFLASHING" path="C21,C22" />
+        <LINE id="L23" type="STEPFLASHING" path="C22,C19" />
+        <LINE id="L24" type="STEPFLASHING" path="C23,C24" />
+        <LINE id="L25" type="STEPFLASHING" path="C24,C25" />
+        <LINE id="L26" type="STEPFLASHING" path="C25,C26" />
+        <LINE id="L27" type="STEPFLASHING" path="C26,C23" />
+        <LINE id="L28" type="STEPFLASHING" path="C27,C28" />
+        <LINE id="L29" type="STEPFLASHING" path="C28,C29" />
+        <LINE id="L30" type="STEPFLASHING" path="C29,C30" />
+        <LINE id="L31" type="STEPFLASHING" path="C30,C27" />
+        <LINE id="L32" type="STEPFLASHING" path="C31,C32" />
+        <LINE id="L33" type="STEPFLASHING" path="C32,C33" />
+        <LINE id="L34" type="STEPFLASHING" path="C33,C34" />
+        <LINE id="L35" type="STEPFLASHING" path="C34,C31" />
+        <LINE id="L36" type="STEPFLASHING" path="C35,C36" />
+        <LINE id="L37" type="STEPFLASHING" path="C36,C37" />
+        <LINE id="L38" type="STEPFLASHING" path="C37,C38" />
+        <LINE id="L39" type="STEPFLASHING" path="C38,C35" />
+        <LINE id="L40" type="STEPFLASHING" path="C39,C40" />
+        <LINE id="L41" type="STEPFLASHING" path="C40,C41" />
+        <LINE id="L42" type="STEPFLASHING" path="C41,C42" />
+        <LINE id="L43" type="STEPFLASHING" path="C42,C39" />
+        <LINE id="L44" type="STEPFLASHING" path="C43,C44" />
+        <LINE id="L45" type="STEPFLASHING" path="C44,C45" />
+        <LINE id="L46" type="STEPFLASHING" path="C45,C46" />
+        <LINE id="L47" type="STEPFLASHING" path="C46,C43" />
+        <LINE id="L48" type="STEPFLASHING" path="C47,C48" />
+        <LINE id="L49" type="STEPFLASHING" path="C48,C49" />
+        <LINE id="L50" type="STEPFLASHING" path="C49,C50" />
+        <LINE id="L51" type="STEPFLASHING" path="C50,C47" />
+        <LINE id="L52" type="STEPFLASHING" path="C51,C52" />
+        <LINE id="L53" type="STEPFLASHING" path="C52,C53" />
+        <LINE id="L54" type="STEPFLASHING" path="C53,C54" />
+        <LINE id="L55" type="STEPFLASHING" path="C54,C51" />
+        <LINE id="L56" type="STEPFLASHING" path="C55,C56" />
+        <LINE id="L57" type="STEPFLASHING" path="C56,C57" />
+        <LINE id="L58" type="STEPFLASHING" path="C57,C58" />
+        <LINE id="L59" type="STEPFLASHING" path="C58,C55" />
+      </LINES>
+      <POINTS>
+        <POINT id="C1" data="0.0,0.0,29.53795144" />
+        <POINT id="C2" data="4.697802960025147,37.42631535828113,29.53795144" />
+        <POINT id="C3" data="17.390205760058013,35.833147199004884,9.84" />
+        <POINT id="C4" data="12.692402800032868,-1.593168162330985,9.84" />
+        <POINT id="C5" data="-7.994599840007722,39.01948351755738,9.84" />
+        <POINT id="C6" data="-12.692402800032868,1.593168159276247,9.84" />
+        <POINT id="C7" data="-3.6193651999766003,27.230786319896577,18.7856588" />
+        <POINT id="C8" data="-3.4151130399433893,28.85801727965474,18.7856588" />
+        <POINT id="C9" data="-5.555559039991349,29.12668863877654,15.463802719999999" />
+        <POINT id="C10" data="-5.75981120002456,27.499457679018377,15.463802719999999" />
+        <POINT id="C11" data="-4.027869520043023,23.976324397325513,18.7856588" />
+        <POINT id="C12" data="-3.823617360009812,25.603555360138415,18.7856588" />
+        <POINT id="C13" data="-5.964063360057771,25.872226719260215,15.463802719999999" />
+        <POINT id="C14" data="-6.1683155199000606,24.244995759502054,15.463802719999999" />
+        <POINT id="C15" data="1.8802501599770038,23.23472951866686,27.95475776" />
+        <POINT id="C16" data="2.084502320010215,24.861960478425026,27.95475776" />
+        <POINT id="C17" data="-0.05594368003774434,25.130631837546822,24.6328984" />
+        <POINT id="C18" data="-0.2601958400709554,23.50340087778866,24.6328984" />
+        <POINT id="C19" data="-5.539339440013282,11.934814638346433,18.7856588" />
+        <POINT id="C20" data="-5.743591600046493,10.307583678588271,18.7856588" />
+        <POINT id="C21" data="-7.8840343200694765,10.57625503771007,15.463802719999999" />
+        <POINT id="C22" data="-7.6797821600362655,12.203485997468233,15.463802719999999" />
+        <POINT id="C23" data="-5.13083511994686,15.189276557862758,18.7856588" />
+        <POINT id="C24" data="-5.335087279980071,13.562045598104595,18.7856588" />
+        <POINT id="C25" data="-7.4755300000030545,13.830716957226395,15.463802719999999" />
+        <POINT id="C26" data="-7.2712778399698434,15.457947920039295,15.463802719999999" />
+        <POINT id="C27" data="0.777284560073167,14.447681679204106,27.95475776" />
+        <POINT id="C28" data="0.5730324000399559,12.820450719445944,27.95475776" />
+        <POINT id="C29" data="-1.5674103199830278,13.089122078567742,24.6328984" />
+        <POINT id="C30" data="-1.3631581599498166,14.716353038325906,24.6328984" />
+        <POINT id="C31" data="7.349072880102321,11.143478558957575,20.44658848" />
+        <POINT id="C32" data="7.14482072006911,9.516247599199414,20.44658848" />
+        <POINT id="C33" data="9.285266719926149,9.247576240077613,17.1247324" />
+        <POINT id="C34" data="9.489518879959359,10.874807199835777,17.1247324" />
+        <POINT id="C35" data="10.253362000016494,8.299623438715935,15.463802719999999" />
+        <POINT id="C36" data="10.049109839983284,6.6723924789577715,15.463802719999999" />
+        <POINT id="C37" data="12.189552560006268,6.403721119835972,12.141943359999999" />
+        <POINT id="C38" data="12.393804720039478,8.030952079594135,12.141943359999999" />
+        <POINT id="C39" data="11.070370639958417,14.808547277748584,15.463802719999999" />
+        <POINT id="C40" data="10.866118480116128,13.181316317990422,15.463802719999999" />
+        <POINT id="C41" data="13.006564479973166,12.912644958868622,12.141943359999999" />
+        <POINT id="C42" data="13.210816640006378,14.539875918626784,12.141943359999999" />
+        <POINT id="C43" data="12.602265120041556,27.012781117856502,15.463802719999999" />
+        <POINT id="C44" data="12.398012960008344,25.38555015809834,15.463802719999999" />
+        <POINT id="C45" data="14.538455680031328,25.11687879897654,12.141943359999999" />
+        <POINT id="C46" data="14.74270784006454,26.7441097587347,12.141943359999999" />
+        <POINT id="C47" data="9.595849920110776,29.0430191193521,20.44658848" />
+        <POINT id="C48" data="9.391597760077566,27.415788159593937,20.44658848" />
+        <POINT id="C49" data="11.53204048010055,27.1471167974174,17.1247324" />
+        <POINT id="C50" data="11.736292639942839,28.774347760230302,17.1247324" />
+        <POINT id="C51" data="15.048092239992693,30.342089358344673,12.365376959999999" />
+        <POINT id="C52" data="15.252344400025903,31.969320318102834,12.365376959999999" />
+        <POINT id="C53" data="13.62511344007682,32.17357247851789,14.890757199999998" />
+        <POINT id="C54" data="13.420861280043608,30.546341518759725,14.890757199999998" />
+        <POINT id="C55" data="10.057483679978176,16.9191288793087,17.41613416" />
+        <POINT id="C56" data="10.261735840011388,18.546359839066863,17.41613416" />
+        <POINT id="C57" data="8.634504880062304,18.750611999481915,19.9415144" />
+        <POINT id="C58" data="8.430252720029094,17.123381039723753,19.9415144" />
+      </POINTS>
+    </ROOF>
+  </STRUCTURES>
+</DATA_EXPORT>
