@@ -37,7 +37,6 @@ def extract_roof_data(data):
     lines = data['DATA_EXPORT']['STRUCTURES']['ROOF']['LINES']
     points = data['DATA_EXPORT']['STRUCTURES']['ROOF']['POINTS']
 
-    counter = 0
     final_string = ""
     for face in faces['FACE']:
         #Einam per kiekviena face'a
@@ -67,7 +66,6 @@ def extract_roof_data(data):
                     final_string = "".join([ final_string, path_line_str]) 
                     #sujungiam visus stringus i viena, kad butu lengviau irasyti i json'a
                     break
-        counter += 1
                             
                                
         final_string = "{" +final_string + "}"
