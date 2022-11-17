@@ -88,7 +88,7 @@ def extract_roof_data(data):
 
 def main():
     #file = input("Iveskite failo pavadinima arba kelia iki jo: ")
-    file="stogas.xml"
+    file="Area1\src\XMLFIles\stogas.xml"
     extract_roof_data(xml_to_json(file))
     
 
