@@ -1,12 +1,15 @@
 import extract_roof_data
 import xml_to_json
+import check_format
 
 
 def main():
-    #file = input("Iveskite failo pavadinima arba kelia iki jo: ")
+    
     file="src/XMLFiles/stogas.xml"
-    print(extract_roof_data.erd(xml_to_json.xtj(file)))
+    print(check_format.cf(file))
+    #print(xml_to_json.xtj(file))
     #extract_roof_data.erd(xml_to_json.xtj(file))
+   
     
 
 

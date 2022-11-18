@@ -22,6 +22,7 @@ def erd(data):
                     line_type = line['@type']
                     #We save type of that line
                     for point in points['POINT']:
+                        
                         #We go through all of points and find two that correspond to the points of the line
                         if point['@id'] == line_points[0]:
                             point1 = point['@data'].split(",")
